@@ -32,7 +32,7 @@
                     @foreach($kasus2 as $data)
                       <tr>
                         <th scope="row">{{$no++}}</th>
-                        <td>{{$data->rw->nama}}</td>
+                        <td>{{$data->rw->nama_rw}}</td>
                         <td>{{$data->jumlah_positif}}</td>
                         <td>{{$data->jumlah_meninggal}}</td>
                         <td>{{$data->jumlah_sembuh}}</td>

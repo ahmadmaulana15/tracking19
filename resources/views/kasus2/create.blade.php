@@ -15,15 +15,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-            
-                <div class="mb-3">
-                        <label for="" class="form-label">Rw</label>
-                       <select name="id_rw" class="form-control" id="">
-                       @foreach($rw as $data)
-                       <option value="{{$data->id}}">{{$data->nama_rw}}</option>
-                       @endforeach
-                       </select>
-                    </div>
+                    <div class="row">
+                            <div class="col">
+                                @livewire('kasus1')
+                            </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Jumlah Positif</label>
                         <input type="number" name="jumlah_positif" class="form-control" id="">
@@ -53,6 +48,7 @@
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
                 </div>
             </div>
