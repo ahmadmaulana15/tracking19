@@ -20,7 +20,7 @@
                                 <livewire:kasus1 />
                             </div>
                             
-                                <center><h2><p>-- Data Kasus --</p></h2></center>
+                                <center><h2><p>-- Data Kasus Local --</p></h2></center>
                             
                             <div class="form-group">
                                 <label for="">Jumlah Positif</label>
@@ -47,7 +47,7 @@
                                 <label for="">Tanggal</label>
                                 <input type="date" name="tanggal" class="form-control" id="exampleInputEmail1"  placeholder="Jumlah Sembuh">
                             </div>
-                            <a href="{{url()->previous()}}" class="btn btn-danger">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>
                             <div class="float-right">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
