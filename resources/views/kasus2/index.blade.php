@@ -16,7 +16,7 @@
                     @endif
                     <table id="example1" class="table table-bordered table-striped">
                     <thead>
-                     <tr class="bg-info">
+                     <tr class="bg-black">
                       <th scope="col">No</th>
                                             <th scope="col"><center>Lokasi</center></th>
                                             <th scope="col"><center>RW</center></th>
@@ -34,11 +34,12 @@
 
                                         <tr>
                                             <th scope="row"><center>{{$no++}}</center></th>
-                                            <td><center>Kelurahan : {{$data->rw->kelurahan->nama_kelurahan}}<br>
-                                            Kecamatan : {{$data->rw->kelurahan->kecamatan->nama_kecamatan}}<br>
+                                            <td><center><b>Provinsi : {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}<br>
                                             Kota : {{$data->rw->kelurahan->kecamatan->kota->nama_kota}}<br>
-                                            Provinsi : {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}</center></td>
-                                            <td><center>{{$data->rw->nama}}</center></td>
+                                            Kecamatan : {{$data->rw->kelurahan->kecamatan->nama_kecamatan}}<br>
+                                            Kelurahan : {{$data->rw->kelurahan->nama_kelurahan}}<br></b>
+                                           </center></td>
+                                            <td><center>{{$data->rw->nama_rw}}</center></td>
                                             <td><center>{{$data->jumlah_positif}}</center></td>
                                             <td><center>{{$data->jumlah_meninggal}}</center></td>
                                             <td><center>{{$data->jumlah_sembuh}}</center></td>

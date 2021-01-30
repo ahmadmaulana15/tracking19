@@ -18,7 +18,7 @@
                         @csrf
                             <div class="col">
                                 <livewire:kasus1 />
-                            </div>
+                            </div>                                             
                             
                                 <center><h2><p>-- Data Kasus Local --</p></h2></center>
                             

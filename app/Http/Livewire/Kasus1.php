@@ -25,17 +25,36 @@ class Kasus1 extends Component
     public $pkecamatan = NULL;
     public $pkelurahan = NULL;
     public $prw = NULL;
+    public $selectedRw = NULL;
 
-
-    public function mount($idk = NULL,$idrw = NULL){
+    public function mount($selectedRw = NULL,$idk = NULL,$idrw = NULL){
         $this->provinsi = provinsi::all();
         $this->kota = collect();
         $this->kecamatan = collect();
         $this->kelurahan = collect();
         $this->rw = collect();
+        $this->selectedRw = $selectedRw;
+
+
+        if(!is_null($selectedRw))
+        {
+            $rw = rw::with('kelurahan.kecamatan.kota.provinsi')->find($selectedRw);
+            if($rw)
+            {
+                    $this->rws = Rw::where('id_kelurahan', $rw->id_kelurahan)->get();
+                    $this->kelurahan = Kelurahan::where('id_kecamatan', $rw->kelurahan->id_kecamatan)->get();
+                    $this->kecamatan = Kecamatan::where('id_kota', $rw->kelurahan->kecamatan->id_kota)->get();
+                    $this->kota = Kota::where('id_provinsi', $rw->kelurahan->kecamatan->kota->id_provinsi)->get();
+                    $this->selectedProvinsi = $rw->kelurahan->kecamatan->kota->id_provinsi;
+                    $this->selectedKota = $rw->kelurahan->kecamatan->id_kota;
+                    $this->selectedKecamatan = $rw->kelurahan->id_kecamatan;
+                    $this->selectedKelurahan = $rw->id_kelurahan;
+            }
+
+        }
 
         if(!is_null($idk)){
-            $tracking = tracking::findOrFail($idk);
+            $tracking = kasus2::findOrFail($idk);
         }
         if (!is_null($idrw)){
             $rw = rw::with('kelurahan.kecamatan.kota.provinsi')->find($idrw);

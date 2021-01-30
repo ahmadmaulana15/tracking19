@@ -3,7 +3,8 @@
         <div class="mb-8 form-group">
             <label class="inline-block w-32 font-bold mr-5">provinsi : </label><br>
             <select name="nama_provinsi" wire:model="pprovinsi" 
-            class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group">
+            class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded 
+            shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group">
                 <option value='' >-- pilih provinsi --</option>
                 @foreach($provinsi as $data)
                     <option value={{ $data->id }}>{{ $data->nama_provinsi }}</option>
@@ -14,11 +15,12 @@
             <div class="mb-8 form-group">
                 <label class="inline-block w-32 font-bold mr-5">Kota :</label><br>
                 <select name="id_kota" wire:model="pkota" 
-                    class=" form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
+                    class=" form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none 
+                    hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
                     >
                     <option value='' >-- pilih kota --</option>
                     @foreach($kota as $item)
-                        <option value={{ $item->id }} <?= (!is_null($pprovinsi) && $item->id_provinsi == $pprovinsi)? 'selected' : '';?>>{{ $item->nama_kota }}</option>
+                       <option value={{ $item->id }} <?= (!is_null($pprovinsi) && $item->id_provinsi == $pprovinsi)? 'selected' : '';?>>{{ $item->nama_kota }}</option>
                     @endforeach
                 </select>
             </div>
@@ -27,7 +29,8 @@
             <div class="mb-8 form-group">
                 <label class="inline-block w-32 font-bold mr-5">kecamatan :</label><br>
                 <select name="id_kecamatan" wire:model="pkecamatan" 
-                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
+                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none
+                     hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
                     >
                     <option value=''>-- pilih kecamatan --</option>
                     @foreach($kecamatan as $kec)
@@ -41,11 +44,12 @@
             <div class="mb-8 form-group">
                 <label class="inline-block w-32 font-bold mr-5">kelurahan :</label><br>
                 <select name="id_kelurahan" wire:model="pkelurahan" 
-                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
+                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none
+                     hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
                     >
                     <option value=''>-- pilih kelurahan --</option>
                     @foreach($kelurahan as $kel)
-                        <option value={{ $kel->id }} <?= (!is_null($pkecamatan) && $kel->id_kecamatan == $pkecamatan)? 'selected' : '';?>>{{ $kel->nama_kelurahan }}</option>
+                 <option value={{ $kel->id }} <?= (!is_null($pkecamatan) && $kel->id_kecamatan == $pkecamatan)? 'selected' : '';?>>{{ $kel->nama_kelurahan }}</option>
                     @endforeach
                 </select>
             </div>
@@ -55,7 +59,8 @@
             <div class="mb-8 form-group">
                 <label class="inline-block w-32 font-bold mr-5">rw :</label><br>
                 <select name="id_rw" wire:model="prw" 
-                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
+                    class="form-control p-2 px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none
+                     hover:border-gray-500 focus:outline-none focus:shadow-outline form-group"
                     >
                     <option value=''>-- pilih RW --</option>
                     @foreach($rw as $r)

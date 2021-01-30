@@ -12,5 +12,5 @@ class kasus2 extends Model
 
     public function rw(){
         return $this->belongsTo('App\Models\rw','id_rw');
-    }
+    } 
 }

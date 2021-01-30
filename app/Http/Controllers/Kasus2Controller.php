@@ -44,7 +44,6 @@ class Kasus2Controller extends Controller
             'tanggal.required' => 'tanggal tidak boleh kosong'
         ]);
         $kasus2 = new Kasus2;
-        $kasus2->id_rw = $request->id_rw;
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
@@ -72,7 +71,6 @@ class Kasus2Controller extends Controller
     public function update(Request $request,$id)
     {
         $kasus2 = Kasus2::findOrFail($id);
-        $kasus2->id_rw = $request->id_rw;
         $kasus2->jumlah_positif = $request->jumlah_positif;
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
