@@ -23,7 +23,7 @@
                                 <center><h2><p>-- Data Kasus Local --</p></h2></center>
                             
                             <div class="form-group">
-                                <label for="">Jumlah Positif</label>
+                                    <label for="">Jumlah Positif</label>
                                 <input type="text"name="jumlah_positif" class="form-control" id="exampleInputEmail1"  placeholder="Jumlah Positif">
                                 @if($errors->has('jumlah_positif'))
                                     <span class="text-danger">{{ $errors->first('jumlah_positif') }}</span>
