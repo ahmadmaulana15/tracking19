@@ -26,11 +26,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //API PROVINSI
-Route::get('provinsi',[ProvinsiController::class, 'index']);
+Route::get('provinsi1',[ProvinsiController::class, 'index']);
 Route::post('provinsi',[ProvinsiController::class, 'store']);
 Route::get('provinsi/{id}',[ProvinsiController::class, 'show']);
+Route::get('provinsi2/{id}',[ProvinsiController::class, 'provinsi']);
 Route::delete('provinsi/{id}',[ProvinsiController::class, 'destroy']);
 
 //API KASUS2
 Route::get('kasus2/{id}',[ApiController::class, 'show']);
 Route::get('kasus2',[ApiController::class, 'index']);
+Route::get('sprovinsi',[ApiController::class, 'sprovinsi']);
+Route::get('sprovinsi/{id}',[ApiController::class, 'dprovinsi']);

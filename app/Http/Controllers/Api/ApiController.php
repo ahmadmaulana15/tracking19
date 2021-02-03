@@ -12,11 +12,31 @@ use App\Models\Kasus2;
 
 class ApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function sprovinsi()
+    {
+        $tampil = DB::table('provinsis')
+        ->join('kotas','kotas.id_provinsi','=','provinsis.id')
+        ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
+        ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
+        ->join('rws','rws.id_kelurahan','=','kelurahans.id')
+        ->join('kasus2s','kasus2s.id_rw','=','rws.id')
+        ->select('nama_provinsi',
+        DB::raw('sum(kasus2s.jumlah_positif) as jumlah_positif'),
+        DB::raw('sum(kasus2s.jumlah_sembuh) as jumlah_sembuh'),
+        DB::raw('sum(kasus2s.jumlah_meninggal) as jumlah_meninggal'))
+        ->groupBy('nama_provinsi')
+        ->get();
+
+        $data = [
+            'success' => true,
+            'Data Provinsi' => $tampil,
+            'message' => 'Data Kasus Di tampilkan'
+        ];
+return response()->json($data,200);
+
+    }
+
+
     public function index()
     {
         $positif = DB::table('rws')->select('kasus2s.jumlah_positif','kasus2s.jumlah_sembuh','kasus2s.jumlah_meninggal')
@@ -44,11 +64,34 @@ class ApiController extends Controller
 return response()->json($res,200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function dprovinsi($id)
+    {
+        $tampil = DB::table('provinsis')
+        ->join('kotas','kotas.id_provinsi','=','provinsis.id')
+        ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
+        ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
+        ->join('rws','rws.id_kelurahan','=','kelurahans.id')
+        ->join('kasus2s','kasus2s.id_rw','=','rws.id')
+        ->where('provinsis.id',$id)
+        ->select('nama_provinsi',
+        DB::raw('sum(kasus2s.jumlah_positif) as jumlah_positif'),
+        DB::raw('sum(kasus2s.jumlah_sembuh) as jumlah_sembuh'),
+        DB::raw('sum(kasus2s.jumlah_meninggal) as jumlah_meninggal'))
+        ->groupBy('nama_provinsi')
+        ->get();
+
+        $data = [
+            'success' => true,
+            'Data Provinsi' => $tampil,
+            'message' => 'Data Kasus Di tampilkan'
+        ];
+return response()->json($data,200);
+
+
+    }
+
+
+
     public function create()
     {
         //
