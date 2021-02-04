@@ -18,7 +18,9 @@
                         <input type="hidden" name="_method" value="put">
                         @csrf
                             <div class="col">
-                            <!-- @livewire('kasus1',['selectedRw'=>$kasus2->id_rw,'selectedKelurahan'=>$kasus2->rw->id_kelurahan,'selectedKecamatan'=>$kasus2->rw->kelurahan->id_kecamatan,'selectedKota'=>$kasus2->rw->kelurahan->kecamatan->id_kota,'selectedProvinsi'=>$kasus2->rw->kelurahan->kecamatan->kota->id_provinsi]) -->
+                            @livewire('dropdowns', ['selectedRw'=>$kasus2->id_rw, 'selectedKelurahan'=>$kasus2->rw->id_kelurahan,
+                'selectedKecamatan'=>$kasus2->rw->kelurahan->id_kecamatan, 'selectedKota'=>$kasus2->rw->kelurahan->kecamatan->id_kota,
+                'selectedProvinsi'=>$kasus2->rw->kelurahan->kecamatan->kota->id_provinsi])
                             </div>                                             
                             
                                 <center><h2><p>-- Data Kasus Local --</p></h2></center>

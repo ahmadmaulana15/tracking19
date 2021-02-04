@@ -34,6 +34,10 @@ Route::delete('provinsi/{id}',[ProvinsiController::class, 'destroy']);
 
 //API KASUS2
 Route::get('kasus2/{id}',[ApiController::class, 'show']);
-Route::get('kasus2',[ApiController::class, 'index']);
-Route::get('sprovinsi',[ApiController::class, 'sprovinsi']);
+Route::get('hariini',[ApiController::class, 'hari']);
+Route::get('indonesia',[ApiController::class, 'index']);
+Route::get('indonesia/sprovinsi',[ApiController::class, 'sprovinsi']);
+Route::get('indonesia/sprovinsi/kota',[ApiController::class, 'skota']);
+Route::get('indonesia/sprovinsi/kota/kecamatan',[ApiController::class, 'skecamatan']);
+Route::get('indonesia/sprovinsi/kota/kecamatan/kelurahan',[ApiController::class, 'skelurahan']);
 Route::get('sprovinsi/{id}',[ApiController::class, 'dprovinsi']);

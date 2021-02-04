@@ -191,7 +191,7 @@ return response()->json($data,200);
 
     //   return response()->json($provinsi,200);
     }
-
+// mENAMPILKAN DATA PROVINSI MENURUT ID
     public function provinsi($id)
     {
         $tampil = DB::table('provinsis')
