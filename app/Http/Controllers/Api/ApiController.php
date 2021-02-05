@@ -58,8 +58,7 @@ return response()->json($data,200);
             'message' => 'Data Kasus Di tampilkan'
         ];
 return response()->json($data,200);
-
-    }
+}
 
 // MENAMPILKAN SELURUH DATA KECAMATAN
     public function skecamatan()
