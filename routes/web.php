@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.welcome');
 });
 
 Auth::routes();
@@ -34,6 +34,10 @@ Route::get('kota',function(){
 Route::get('kecamatan',function(){
     return view('kecamatan.index');
 });
+
+//FRONTEND
+use App\Http\Controllers\WelcomeController;
+Route::resource('/',WelcomeController::class);
 
 // PROVINSI
 use App\Http\Controllers\ProvinsiController;

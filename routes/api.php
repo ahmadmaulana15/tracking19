@@ -41,3 +41,7 @@ Route::get('indonesia/sprovinsi/kota',[ApiController::class, 'skota']);
 Route::get('indonesia/sprovinsi/kota/kecamatan',[ApiController::class, 'skecamatan']);
 Route::get('indonesia/sprovinsi/kota/kecamatan/kelurahan',[ApiController::class, 'skelurahan']);
 Route::get('sprovinsi/{id}',[ApiController::class, 'dprovinsi']);
+//API KAWAL CORONA
+Route::get('dunia', [ApiController::class, 'Global']);
+//APi seluruh dunia kawal corona
+Route::get('sdunia', [ApiController::class, 'Global']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use App\Models\Kelurahan;
 use App\Models\Rw;
@@ -275,13 +276,43 @@ return response()->json($res,200);
         
          return response()->json($arr, 200);
     }
+// API Kawal Corona Seluruh Dunia
+    public function sglobal(){
+        $url = Http::get('https://api.kawalcorona.com/')->json();
+        $data = [
+            'success' => true,
+            'data'    => $url,
+            'message' => 'Menampilkan Global'
+        ];
+        return response()->json($data, 200);
+    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   //API KAWAL CORONA GLOBAL
+
+   public function Global(){
+    $url = Http::get('https://api.kawalcorona.com/')->json();
+    $data = [];
+    foreach ($url as $key => $value) {
+        $ul = $value['attributes'];
+        $res = [
+            'id '=>$ul['OBJECTID'],
+            'Country'=>$ul['Country_Region'],
+            'Confirmed'=>$ul['Confirmed'],
+            'Deaths'=>$ul['Deaths'],
+            'Recovered'=>$ul['Recovered'],
+        ];
+        array_push($data,$res);
+
+    }
+    $response = [
+        'success' => true,
+        'country' =>$data,
+        'message'=> 'Data berhasil ditampilkan',
+    ];
+    return response()->json($response,200);
+
+ }
+
     public function edit($id)
     {
         //

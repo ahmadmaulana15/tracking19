@@ -76,6 +76,7 @@ class Kasus2Controller extends Controller
         $kasus2->jumlah_meninggal = $request->jumlah_meninggal;
         $kasus2->jumlah_sembuh = $request->jumlah_sembuh;
         $kasus2->tanggal = $request->tanggal;
+        $kasus2->id_rw = $request->id_rw;
         $kasus2->save();
         return redirect()->route('kasus2.index')->with(['message' => 'Data Kasus2 Berhasil disimpan']);
     }
