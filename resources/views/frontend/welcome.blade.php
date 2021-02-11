@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>OnePage Bootstrap Template - Index</title>
+  <title>Tracking Covid</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -78,7 +78,7 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
+  <!-- ======= DATA KASUS Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
@@ -90,7 +90,10 @@
       <div class="text-center">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
       </div>
-
+      <div class="container">
+      <div class="section-title">
+          <h2>Data Kasus Indonesia</h2>
+          </div>
       <div class="row icon-boxes">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
           <div class="icon-box">
@@ -119,17 +122,115 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
           <div class="icon-box">
             <div class="icon"><i class="ri-fingerprint-line"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+            <h4 class="title"><a href="">DATA KASUS GLOBAL</a></h4>
+            <p class="description"><?php echo $getglobal['value'] ?></p>
+          </div>
+        </div>
+
+</div>
+      </div>
+    </div>
+  </section><!-- End DATA KASUS -->
+
+  <main id="main">
+
+
+   <!-- ======== Table Section ======== -->
+   <section id="provinsi" class="provinsi">
+      <div class="container">
+
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Data Kasus Indonesia</h2>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+              
+            <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+              <table class="table table-bordered table-striped mb-0 " width="100%">
+                <thead>
+                  <tr>
+                    <th scope="col"><center>No</center></th>
+                    <th scope="col"><center>Provinsi</center></th>
+                    <th scope="col"><center>Jumlah Positif</center></th>
+                    <th scope="col"><center>Jumlah Sembuh</center></th>
+                    <th scope="col"><center>Jumlah Meninggal</center></th>
+                  </tr>
+                </thead>
+              <tbody>
+              @php
+                $no = 1;
+              @endphp
+
+              @foreach($lokal as $data)
+                  <tr>
+                    <th scope="row"><center>{{$no++}}</center></th>
+                      <td><center>{{$data->nama_provinsi}}</center></td>
+                      <td><center>{{number_format($data->jumlah_positif)}}</center></td>
+                      <td><center>{{number_format($data->jumlah_sembuh)}}</center></td>
+                      <td><center>{{number_format($data->jumlah_meninggal)}}</center></td>
+                  </tr>
+                  
+                </tbody>
+                @endforeach
+              </table>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
-  </section><!-- End Hero -->
+      </section>
+    <!-- ======== End Table Section ======== -->
 
-  <main id="main">
 
+    <!-- ======== Table Section Global ======= -->
+    <section id="global" class="global">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Data Kasus Dunia</h2>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+              
+            <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+              <table class="table table-bordered table-striped mb-0 " width="100%">
+                <thead>
+                  <tr>
+                    <th scope="col"><center>No</center></th>
+                    <th scope="col"><center>Negara</center></th>
+                    <th scope="col"><center>Jumlah Positif</center></th>
+                    <th scope="col"><center>Jumlah Sembuh</center></th>
+                    <th scope="col"><center>Jumlah Meninggal</center></th>
+                  </tr>
+                </thead>
+              <tbody>
+              @php
+                $no = 1;
+              @endphp
+                @foreach($globall as $data)
+                    <tr>
+                      <td> <?php echo $no++ ?></td>
+                      <td> <?php echo $data['attributes']['Country_Region'] ?></td>
+                      <td> <?php echo number_format($data['attributes']['Confirmed']) ?></td>
+                      <td><?php echo number_format($data['attributes']['Recovered'])?></td>
+                      <td><?php echo number_format($data['attributes']['Deaths'])?></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </section>
+    <!-- ======== End Table Section Global ======= -->
+
+  
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
@@ -162,7 +263,8 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section>
+    <!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts section-bg">
