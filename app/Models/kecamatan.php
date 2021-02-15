@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class kecamatan extends Model
 {
-    protected $fillable = ['nama_kecamatan','kode_kecamatan','id_kota'];
+    protected $fillable = ['nama_kecamatan','id_kota'];
     public $timestamps = true;
 
     public function kota(){

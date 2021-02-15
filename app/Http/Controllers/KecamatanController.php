@@ -32,18 +32,15 @@ class KecamatanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_kecamatan' => 'required|max:10|unique:kecamatans',
+      
             'nama_kecamatan' => 'required|unique:kecamatans'
         ],   [
-            'kode_kecamatan.required' => 'Kode kecamatan Tidak Boleh kosong',
-            'Kode_kecamatan.max' => 'Kode maksimal 10 karakter',
-            'kode_kecamatan.unique' => 'kode kecamatan Sudah Terdaftar',
+  
             'nama_kecamatan.required' => 'Nama kecamatan Tidak Boleh Kosong',
             'nama_kecamatan.unique' => 'Nama kecamatan Sudah Terdaftar'
         ]);
         $kecamatan = new kecamatan;
         $kecamatan->id_kota = $request->id_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')->with(['message' => 'Data Kecamatan Berhasil disimpan']);
@@ -69,7 +66,6 @@ class KecamatanController extends Controller
     {
         $kecamatan = kecamatan::findOrFail($id);
         $kecamatan->id_kota = $request->id_kota;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->save();
         return redirect()->route('kecamatan.index')->with(['message' => 'Data kecamatan Berhasil disimpan']);

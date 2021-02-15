@@ -26,10 +26,6 @@
                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Kode Kecamatan</label>
-                        <input type="text" name="kode_kecamatan"  value="{{$kecamatan->kode_kecamatan}}" class="form-control" id="">
-                    </div>
-                    <div class="mb-3">
                         <label for="" class="form-label">kecamatan</label>
                         <input type="text" name="nama_kecamatan"  value="{{$kecamatan->nama_kecamatan}}" class="form-control" id="">
                     </div>

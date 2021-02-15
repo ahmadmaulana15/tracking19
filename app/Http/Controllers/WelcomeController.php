@@ -38,20 +38,21 @@ class WelcomeController extends Controller
             ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
             ->join('rws','rws.id_kelurahan','=','kelurahans.id')
             ->join('kasus2s','kasus2s.id_rw','=','rws.id')
-            ->select('nama_provinsi',
+            ->select('nama_provinsi',           
                     DB::raw('sum(kasus2s.jumlah_positif) as jumlah_positif'),
                     DB::raw('sum(kasus2s.jumlah_sembuh) as jumlah_sembuh'),
                     DB::raw('sum(kasus2s.jumlah_meninggal) as jumlah_meninggal'))
             ->groupBy('nama_provinsi')->orderBy('nama_provinsi','ASC')
             ->get();
 
+            //Pengambilan Data Positif sedunia secara online (by.KawalCorona.com)
             $global = file_get_contents('https://api.kawalcorona.com/positif');
             $getglobal = json_decode($global, TRUE);
 
-             // Table Global
+             // Table Global        
         $dataglobal= file_get_contents("https://api.kawalcorona.com/");
         $globall = json_decode($dataglobal, TRUE);
 
-        return view('frontend.welcome', compact('positif','sembuh','meninggal','lokal','getglobal','globall'));
+        return view('frontend.welcome', compact('positif','sembuh','meninggal','lokal','globall','getglobal'));
     }
 }

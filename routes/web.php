@@ -35,6 +35,10 @@ Route::get('kecamatan',function(){
     return view('kecamatan.index');
 });
 
+// Halaman Admin Utama
+use App\Http\Controllers\UtamaController;
+Route::resource('home',UtamaController::class);
+
 //FRONTEND
 use App\Http\Controllers\WelcomeController;
 Route::resource('/',WelcomeController::class);
