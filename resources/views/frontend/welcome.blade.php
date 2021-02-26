@@ -44,33 +44,29 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="provinsi">Tracking Covid</a></h1>
+            <h1 class="logo mr-auto"><a href="#hero">Tracking Covid</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo mr-auto"><img src="{{ asset('frontend/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     {{-- <li class="active"><a href="index.html">Home</a></li> --}}
-                    <li><a href="#about">Tentang</a></li>
-
                     <li class="drop-down"><a href="">Data kasus</a>
                         <ul>
-                            <li><a href="#provinsi">Data Kasus Provinsi</a></li>
-                            {{-- <li class="drop-down"><a href="#">Deep Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li> --}}
                             <li><a href="#global">Data Kasus Dunia</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
+                            <li class="drop-down"><a href="#">Data Kasus Lokal</a>
+                                <ul>
+                                    <li><a href="#provinsi">Data Kasus Provinsi</a></li>
+                                    <li><a href="#kota">Data Kasus Kota </a></li>
+                                    <li><a href="#kecamatan">Data Kasus Kecamatan </a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <li><a href="#team">Tim</a></li>
+
+                    <li><a href="#about">Tentang</a></li>
+
+
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav><!-- .nav-menu -->
@@ -86,7 +82,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9 text-center">
                     <h1>Tracking Covid</h1>
-                    <h2>Oleh Tim Kreatif</h2>
+                    <h2>live data kasus corona dunia dan Indonesia</h2>
                 </div>
             </div><br><br>
 
@@ -251,10 +247,145 @@
 
             </div>
         </section>
+        <!-- ======== End Table data kasus berdasarkan provinsi Section ======== -->
+
+        <!-- ======== Table data kasus berdasarkan Kota Section ======== -->
+        <section id="kota" class="kota">
+            <div class="container">
+
+
+                <div class="section-title" data-aos="zoom-out">
+                    <h2>Data Kasus Indonesia Berdasarkan Kota</h2>
+                </div>
+
+                <div class="row content" data-aos="fade-up">
+
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+                        <table class="table table-bordered table-striped mb-0 " width="100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <center>No</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Kota</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Positif</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Sembuh</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Meninggal</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+
+                                @foreach ($tampil as $data)
+                                    <tr>
+                                        <th scope="row">
+                                            <center>{{ $no++ }}</center>
+                                        </th>
+                                        <td>
+                                            <center>{{ $data->nama_kota }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_positif) }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_sembuh) }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_meninggal) }}</center>
+                                        </td>
+                                    </tr>
+
+                            </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </section>
+        <!-- ======== End Table data kasus berdasarkan kota Section ======== -->
+        <!-- ======== Table data kasus berdasarkan provinsi Section ======== -->
+        <section id="kecamatan" class="kecamatan">
+            <div class="container">
+
+
+                <div class="section-title" data-aos="zoom-out">
+                    <h2>Data Kasus Indonesia Berdasarkan Kecamatan</h2>
+                </div>
+
+                <div class="row content" data-aos="fade-up">
+
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+                        <table class="table table-bordered table-striped mb-0 " width="100%">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <center>No</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Kecamatan</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Positif</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Sembuh</center>
+                                    </th>
+                                    <th scope="col">
+                                        <center>Jumlah Meninggal</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+
+                                @foreach ($kecam as $data)
+                                    <tr>
+                                        <th scope="row">
+                                            <center>{{ $no++ }}</center>
+                                        </th>
+                                        <td>
+                                            <center>{{ $data->nama_kecamatan }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_positif) }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_sembuh) }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ number_format($data->jumlah_meninggal) }}</center>
+                                        </td>
+                                    </tr>
+
+                            </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </section>
         <!-- ======== End Table Section ======== -->
 
 
-        <!-- ======== Table Section Global ======= -->
+        <!-- ======== Table Global Section ======= -->
         <section id="global" class="global">
             <div class="container">
 
@@ -310,10 +441,10 @@
 
             </div>
         </section>
-        <!-- ======== End Table Section Global ======= -->
+        <!-- ======== End Table Global Section ======= -->
 
 
-        <!-- ======= About Section ======= -->
+        <!-- ======= About/Tentang Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
 
@@ -368,7 +499,7 @@
 
             </div>
         </section>
-        <!-- End About Section -->
+        <!-- End About/Tentang Section -->
 
 
         <!-- ======= Clients Section ======= -->
@@ -413,7 +544,7 @@
         </section><!-- End Clients Section -->
 
         <!-- ======= Team Section ======= -->
-        <section id="team" class="team section-bg">
+        {{-- <section id="team" class="team section-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
@@ -503,7 +634,7 @@
                 </div>
 
             </div>
-        </section>
+        </section> --}}
         <!-- End Team Section -->
 
         <!-- ======= Pricing Section ======= -->
@@ -583,7 +714,7 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="#about">Tentang</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#provinsi">Data Kasus Provinsi</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#global">Data Kasus Dunia</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#team">Tim Pendukung</a></li>
+
                         </ul>
                     </div>
 

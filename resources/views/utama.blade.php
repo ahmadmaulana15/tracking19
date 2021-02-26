@@ -60,25 +60,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-                                        <div class="count-box">
-                                            <i class="icofont-globe"></i> <br>
-                                            <h5>
-                                                <p>
-                                                    <center>Total Dunia</center>
-                                                </p>
-                                            </h5>
-
-                                        </div>
-                                    </div>
-
-                                </div><br><br>
-
-
+                                </div>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

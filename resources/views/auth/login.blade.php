@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Kawal Covid | Log in</title>
+    <title>Tracking Covid | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -60,27 +60,27 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
                                 <label for="">
                                     <a href="register">Register</a>
                                 </label>
                             </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                        </div>
-                        <!-- /.col -->
+                        </div> --}}
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
-                </form>
-
-
-                <!-- /.social-auth-links -->
+                    <!-- /.col -->
             </div>
-            <!-- /.login-card-body -->
+            </form>
+
+
+            <!-- /.social-auth-links -->
         </div>
+        <!-- /.login-card-body -->
+    </div>
     </div>
     <!-- /.login-box -->
 
