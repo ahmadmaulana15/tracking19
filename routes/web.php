@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.welcome');
 });
-
-Auth::routes();
-
+Auth::routes(['register'=> false, 'reset'=>false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('utama');
 
 Route::get('admin',function(){
@@ -34,6 +32,7 @@ Route::get('kota',function(){
 Route::get('kecamatan',function(){
     return view('kecamatan.index');
 });
+
 
 // Halaman Admin Utama
 use App\Http\Controllers\UtamaController;

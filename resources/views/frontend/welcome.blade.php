@@ -153,7 +153,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+                         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
                             <div class="icon-box">
                                 <center>
@@ -384,8 +384,7 @@
         </section>
         <!-- ======== End Table Section ======== -->
 
-
-        <!-- ======== Table Global Section ======= -->
+         <!-- ======== Table Global Section ======= -->
         <section id="global" class="global">
             <div class="container">
 

@@ -79,7 +79,7 @@ class WelcomeController extends Controller
         $dataglobal= file_get_contents("https://api.kawalcorona.com/");
         $globall = json_decode($dataglobal, TRUE);                      
 
-        return view('frontend.welcome', compact('positif','sembuh','meninggal','lokal','globall','getglobal','tampil','kecam'));
+        return view('frontend.welcome', compact('positif','sembuh','meninggal','lokal','tampil','kecam','globall','getglobal'));
     }
 }
  
